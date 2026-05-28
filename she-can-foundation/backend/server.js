@@ -13,7 +13,15 @@ connectDB();
 const app = express();
 
 // Middlewares
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: [
+        "http://localhost:5173", // Local testing ke liye
+        process.env.FRONTEND_URL // .env file se uthane ke liye (naam wahi rakhna jo tune .env mein diya hai)
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 app.use(express.json());
 
 // Routes
