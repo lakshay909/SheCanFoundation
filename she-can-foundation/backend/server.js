@@ -13,11 +13,7 @@ connectDB();
 const app = express();
 
 // Middlewares
-const corsOptions = {
-  origin: [process.env.FRONTEND_URL, 'http://localhost:5173'].filter(Boolean),
-  optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 // Routes
